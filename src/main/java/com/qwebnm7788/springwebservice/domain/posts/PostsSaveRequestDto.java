@@ -1,5 +1,6 @@
 package com.qwebnm7788.springwebservice.domain.posts;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,5 +20,12 @@ public class PostsSaveRequestDto {
                     .content(content)
                     .author(author)
                     .build();
+    }
+
+    @Builder
+    public PostsSaveRequestDto(String title, String content, String author) {
+        this.title = title;
+        this.content = content;
+        this.author = author;
     }
 }
