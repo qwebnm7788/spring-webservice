@@ -38,3 +38,16 @@ deploy:
     on:
       repo: qwebnm7788/spring-webservice
       branch: master
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: qwebnm7788-webservice-deploy
+    key: spring-webservice.zip
+    bundle_type: zip
+    application: spring-webservice
+    deployment_group: spring-webservice-group
+    region: ap-northeast-2
+    wait-until-deployed: true
+    on:
+      repo: qwebnm7788/spring-webservice
+      branch: master
