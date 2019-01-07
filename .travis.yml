@@ -20,6 +20,11 @@ notifications:
     recipients:
       - qwebnm7788@naver.com
 
+before_deploy:
+  - zip -r spring-webservice *
+  - mkdir -p deploy
+  - mv spring-webservice.zip deploy/spring-webservice.zip
+
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY
@@ -27,6 +32,7 @@ deploy:
     bucket: qwebnm7788-webservice-deploy
     region: ap-northeast-2
     skip_cleanup: true
+    local_dir: deploy
     acl: public_read
     wait-until-deployed: true
     on:
