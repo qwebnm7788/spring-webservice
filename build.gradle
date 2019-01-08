@@ -26,6 +26,7 @@ repositories {
 ext['hibernate.version'] = '5.2.11.Final'
 
 dependencies {
+    compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client'
     implementation('org.springframework.boot:spring-boot-starter-actuator')
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('org.springframework.boot:spring-boot-starter-web')
